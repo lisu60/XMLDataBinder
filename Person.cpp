@@ -16,3 +16,11 @@ Person::Person(std::string name, int age)
     this->name=name;
     this->age=age;
 }
+
+Person::Person() {}
+
+void Person::loadMap(map<string, string> params)
+{
+    name=params["Name"];
+    age=stoi(params["Age"]);
+}

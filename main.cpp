@@ -16,10 +16,14 @@ using namespace std;
 using namespace xercesc;
 
 int main (int argc, char* args[]) {
-    XMLInstantiator in;
-    char* file = "/home/taylor/ClionProjects/XMLDataBinder/persons.xml";
+    vector<string> params;
+    params.push_back("Age");
+    params.push_back("Name");
+    XMLInstantiator<Person> instantiator(params);
+    const char *file = "/home/taylor/ClionProjects/XMLDataBinder/persons.xml";
 
-    vector<Person> persons=in.parse(file);
+    vector<Person> persons=instantiator.parse(file);
+
     vector<Person>::iterator iter = persons.begin();
     for(; iter!= persons.end(); iter++)
     {
